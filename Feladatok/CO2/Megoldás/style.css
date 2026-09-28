@@ -1,0 +1,68 @@
+img {
+    width: 100%;
+}
+
+.elso {
+    width: 30%;
+}
+
+header {
+    width: 80%;
+    margin-left: 10%;
+}
+header h1 {
+    color: #b8d1cf;
+    text-shadow: #bababa 1px 1px 8px;
+    -webkit-text-stroke: 1px black;
+    font-family: sans-serif;
+    font-size: 3em;
+}
+
+article {
+    width: 80%;
+    margin-left: 10%;
+    background-color: #b8d1cf;
+    border-radius: 15px 15px 0 0 ;
+}
+
+section {
+    padding: 30px;
+}
+
+section table, section th, section td {
+  border: 1px solid black;
+}
+
+section table {
+    border-collapse: collapse;
+    width: 70%;
+    margin-left: 15%;
+}
+
+section th {
+    background-color: #5f827f;
+    color: white;
+}
+
+section tr:nth-child(even){
+    background-color: #b4e0dd;
+}
+
+.vege {
+    margin-top: 10px;
+    border-radius: 0 0 15px 15px;
+}
+
+.vege p {
+    margin: 0;
+    text-align: center;
+}
+
+section p {
+    text-align: justify;
+}
+
+p a {
+    text-decoration: none;
+    color: grey;
+}
