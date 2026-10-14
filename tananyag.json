@@ -1,0 +1,47 @@
+{
+  "_megjegyzes": "Az oldal ebből a fájlból tudja, melyik feladat melyik tanegységhez tartozik. Új tanegység után ide kell felvenni. A 'mappa' a Feladatok alatti mappa neve; a 'szerep' 'órai' vagy 'gyakorló'. Ami egyik tanegységhez sincs rendelve, az 'További feladatok' alatt jelenik meg.",
+  "cim": "Weboldalak készítése",
+  "alcim": "Órai feladatok, gyakorló feladatok és mintamegoldások tanegységenként. Előismeret nem szükséges. Az oldal csak gyakorlati feladatokat tartalmaz, elméleti anyagot nem közöl.",
+  "tanulasi_ut": [
+    { "nev": "HTML-szerkezet", "allapot": "kesz" },
+    { "nev": "CSS és reszponzív elrendezés", "allapot": "kesz" },
+    { "nev": "JavaScript alapok", "allapot": "kesobb" },
+    { "nev": "Események és DOM", "allapot": "kesobb" },
+    { "nev": "Űrlapok", "allapot": "kesobb" },
+    { "nev": "SVG és Canvas", "allapot": "kesobb" }
+  ],
+  "orak": [
+    {
+      "cim": "HTML5 szerkezet és alapformázás",
+      "kulcsszavak": ["<header>", "<article>", "<section>", "külső CSS", "80%-os szélesség, középre igazítva"],
+      "feladatok": [
+        { "mappa": "Az időutazás napja", "szerep": "órai" },
+        { "mappa": "Környezetvédelem", "szerep": "gyakorló" },
+        { "mappa": "Kommunikáció", "szerep": "gyakorló" }
+      ]
+    },
+    {
+      "cim": "Listák, táblázat, hasábos rács",
+      "kulcsszavak": ["<ul>", "<ol>", "<table>", "float", ".row", ".col-N"],
+      "feladatok": [
+        { "mappa": "Rubik-kocka", "szerep": "órai", "megjegyzes": "10 egységes rács" },
+        { "mappa": "Kommunikáció", "szerep": "gyakorló", "megjegyzes": "A szöveg listává alakítása" }
+      ]
+    },
+    {
+      "cim": "Reszponzív hasábok, táblázatsorok színezése",
+      "kulcsszavak": ["@media", ":nth-child"],
+      "feladatok": [
+        { "mappa": "ChatGPT", "szerep": "órai", "megjegyzes": "Mintadolgozat" },
+        { "mappa": "CO2", "szerep": "gyakorló", "megjegyzes": "Ismétlő feladat" }
+      ]
+    },
+    {
+      "cim": "Többoldalas webhely, navigáció, hivatkozások",
+      "kulcsszavak": ["<nav>", "<a href>", "relatív útvonal", "<iframe>"],
+      "feladatok": [
+        { "mappa": "A pénz", "szerep": "órai", "megjegyzes": "Ötoldalas webhely" }
+      ]
+    }
+  ]
+}
