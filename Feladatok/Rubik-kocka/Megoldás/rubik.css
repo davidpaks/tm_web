@@ -1,0 +1,84 @@
+body{
+  color: #443502;
+  background-color: #ededc1;
+  background-size: 70px 70px;
+}
+
+article {
+    width: 70%;
+    margin-left: 15%;
+}
+
+img{
+    width: 100%;
+}
+
+.o-1 {
+    width: 10%;
+    float: left;
+}
+
+.o-2 {
+    width: 20%;
+    float: left;
+}
+
+.o-3 {
+    width: 30%;
+    float: left;
+}
+
+.o-4 {
+    width: 40%;
+    float: left;
+}
+
+.o-5 {
+    width: 50%;
+    float: left;
+}
+
+.o-6 {
+    width: 60%;
+    float: left;
+}
+
+.o-7 {
+    width: 70%;
+    float: left;
+}
+
+.o-8 {
+    width: 80%;
+    float: left;
+}
+
+.o-9 {
+    width: 90%;
+    float: left;
+}
+
+.o-10 {
+    width: 100%;
+    float: left;
+}
+
+.sor {
+    overflow: auto;
+}
+
+p {
+    text-align: justify;
+    padding: 10px;
+}
+
+table tr td:first-child {
+    width: 25%;
+}
+table tr td:nth-child(2) h1 {
+    padding-left: 30px;
+}
+table {
+    width: 85%;
+    margin-left: 7.5%;
+}

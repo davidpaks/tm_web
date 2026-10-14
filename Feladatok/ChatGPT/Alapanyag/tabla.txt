@@ -1,0 +1,7 @@
+Tulajdonság	Érték
+Modell neve	ChatGPT
+Kifejlesztő	OpenAI
+Tanulási módszer	Felügyelet nélküli tanulás
+Képességek	Szövegértelmezés, válaszgenerálás
+Verziószám	GPT-3
+Alkalmazási területek	Ügyfélszolgálat, oktatás, keresési motorok, fejlesztői eszközök

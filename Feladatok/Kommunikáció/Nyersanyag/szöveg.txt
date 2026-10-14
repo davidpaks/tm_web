@@ -1,0 +1,30 @@
+Kommunikáció
+
+A kommunikáció
+
+A kommunikáció szó a latin communicatio igéből származik. Jelentései: megoszt valamit valakivel, megbeszél, megtárgyal. A szó mára nemzetközi kifejezéssé vált, jelentése folyamatosan bővült, napjainkban már-már divatszóvá is vált. A kommunikációelmélet az emberi megismerés számára interdiszciplináris (több tudományágra kiterjedő, több szakterületet közösen érintő) tudományos kérdés: a személyiség-lélektan, a szociológia, a szociálpszichológia, a pedagógia, a behaviorizmus (viselkedéstudomány) mellett a nyelvészeti tudományok, az antropológia, sőt még a műszaki tudományok is kiemelt figyelmet fordítanak az emberi kommunikáció különböző folyamataira és jellegzetességeire. Ebből adódóan kommunikációnak sokféle meghatározása létezik. A legátfogóbb szerint kommunikáció minden olyan folyamat, amelyben információ továbbítása történik. Egy szűkebb meghatározás szerint a kommunikáció az információk rendszeres kicserélése emberek között, gépek között vagy emberek és gépek között. A kommunikáció tehát minden rendszer nélkülözhetetlen eleme. Az emberi társadalom is rendszer – sokak szerint bonyolult szuperrendszer-, amelynek alapvető jellemzője a kommunikáció, s a kultúra nem más, mint a társadalmi kommunikáció rendszere.
+
+A kommunikációban alapvető célunk az információ megragadása és továbbítása térben (pl. műsorszórás) és/vagy időben (pl. könyv, CD).
+
+Az emberi kommunikáció alakulása
+
+Nyelv és beszéd: eleinte tagolatlan hangok, kiáltások, arcjáték, jellegzetes testtartások, mozdulatsorok, vagyis metakommunikáció. Később alakultak ki a szavak, mondatok, amelyek egy-egy cselekvéshez, tárgyhoz rendelődtek hozzá.
+Írás: képírás (hieroglifák) --> szóírás (a kínai írás ma is ilyen) --> betűírás (általában 40-50 hang és ugyanannyi betű)
+Számírás: eleinte rovások --> számrendszerek (60-as, 12-es, 10-es)
+Nyomtatás: bélyegző és tábla nyomtatás (Kína 800-as évek, sokszorosítás) --> fatáblás nyomtatás (Gutenberg felfedezte a betűöntőgépet) --> könyvnyomtatás (szabványok kellettek: papír {A, B, C}, mértékegység {1 pont=0,3 mm}) --> folyóiratok
+Telekommunikáció: a tele előtag távolságot jelent. Az információ térbeli és időbeli továbbításnak lehetőségei a „végtelenig” érnek; dobszó, síp, füstjel --> morzejelek --> telefon --> számítógépes hálózatok (videó konferencia, telefax, Internet)
+A kommunikáció alapfunkciói
+
+Információs funkció: a kommunikációs folyamat résztvevői között tájékoztatás történik, mely során tényeket, ezek magyarázatát közöljük. A közléshez fűződő érzések, illetve az érzések magyarázata is ide tartozik.
+Érzelmi funkció: a közlő személyiség belső feszültségeinek feloldására kerül sor az érzelmek kifejezésével. Elégedettség, öröm, bosszúság, aggodalom, bánat, lelkesedés stb. egyaránt ide tartozik, ugyanis a ki nem fejezett, visszafojtott pozitív érzelmek éppúgy feszültséget okoznak, mint a negatívak.
+Motivációs funkció: a kommunikációs folyamatokban a közlő fél a legtöbbször a fogadót rá akarja bírni valamire: cselekvésre, magatartásváltoztatásra, közös vélemény kialakítására, valamilyen körülmény, esemény, jelenség elkerülésére stb. E funkció leginkább a meggyőzés, a bátorítás révén jut kifejezésre.
+Ellenőrzési funkció: újabb kommunikációs kapcsolatfelvétel segítségével tudjuk meg, hogy az eredeti elérte-e célját? Ehhez azonban kommunikációs céljainknak nagymértékben tudatosnak kell lenniük. A funkció segítségével tárjuk fel kommunikációs partnereink indítékait.
+A kommunikációs gyakorlatban az alapfunkciók mellé továbbiak társulhatnak, illetve egy-egy folyamat az esetek többségében többfunkciós. (Pl.: egy tájékoztatásnak egyszerre lehet célja a cselekvésre történő ösztönzés, a közlő érzelmi viszonyának kifejezése a szituáció egészéhez stb.)
+
+A személyiség társadalomban valósítja meg cselekvéseit, épp ezért lényegében minden emberi cselekvésnek van kommunikációs, kapcsolatteremtő vonatkozása is. Ezek a vonatkozások természetesen tágabb összefüggésekben magyarázhatók, érthetők meg, mint a személyközi, közvetlen kommunikáció, amely része - mondhatnánk "alapegysége" a társadalmi kommunikációs rendszernek.
+
+A kommunikáció általános modellje
+
+A közlemény előállítóját, az információ forrását adónak nevezzük. Üzenetét valamilyen jelkészlet jeleiből állítja össze, bizonyos szabályok felhasználásával. A sorozatba rendezett jeleket valamilyen információhordozóra bízza, és közvetítő csatornán küldi az üzenet címzettjének, amit vevőnek nevezünk. A csatorna lehet természetes (hang, fény stb.) és mesterséges (telefon, rádió stb.) is. A természetes csatornákon a jel az eredeti alakjában utazhat, a mesterséges csatornákban való szállításhoz át kell alakítani. Ez a kódolás.
+
+A kommunikáció általános modelljét Claude Elwood Shannon alkotta meg 1948-ban. Ebben a modellben az információátadás kiindulópontja a hírforrás (source), amelynek közlendője van, amely információt akar átadni. Ez az információ a hír. Ezt azonban csak kódolt formában tudja közölni (nyelv, kép, hang, kézmozdulat, morzejel…), a kódolt hírt nevezzük közleménynek, azaz mindent, ami valamilyen kódolt formában információt szállít. A közlemény valamilyen csatornán (channel) jut el a vevőhöz (decoder). A dekódolt közlemény hírként jut el a címzetthez (receiver). Ez a kommunikáció „zajmentes” modellje. A gyakorlatban azonban a csatornában mindig torzul a közlemény.

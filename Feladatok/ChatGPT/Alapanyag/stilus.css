@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-image: url(logo.jpg);
+    height: 300px;
+}
+
+p, h3, h1 {
+    padding: 10px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 20pt;
+}
+
+header p {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0;
+    padding-top: 90px;
+}
+
+header img {
+    height: 72pt;
+}
+
+a {
+    color: rgb(116, 170, 156);
+}
