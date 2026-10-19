@@ -31,5 +31,6 @@ Minden feladatnál:
 | 2. | Listák, táblázat, hasábos rács | Rubik-kocka | Kommunikáció (listává alakítás) |
 | 3. | Reszponzív hasábok, táblázatsorok színezése | ChatGPT (mintadolgozat) | CO2 (ismétlő feladat) |
 | 4. | Többoldalas webhely, navigáció, hivatkozások | A pénz | – |
+| 5. | JavaScript alapok | Szorzótábla, Osztótábla (plusz feladat) | – |
 
 A feladatok forrásfájljai ebben a GitHub repositoryban, a [`Feladatok`](Feladatok) mappában is elérhetők.

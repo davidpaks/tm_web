@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szorzótábla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+
+        /* A sor kiemelése: a sor minden cellája, ha a sor fölött van az egér */
+        tr:hover td {
+            background-color: #cfe0ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Szorzótábla</h1>
+    <p>Az egér alatti cella sora és oszlopa kiemelődik.</p>
+
+    <script>
+        let meret = 15;
+
+        // Az oszlop kiemelése CSS-sel.
+        // Minden cella megkapja az oszlopa osztályát: az 1. oszlop cellái "oszlop-1", a 2.-éi "oszlop-2" stb.
+        // A :has() akkor teljesül, ha a táblázatban van olyan elem, amire a zárójelben lévő szelektor illik.
+        // Példa a 3. oszlopra:
+        //   table:has(.oszlop-3:hover) .oszlop-3          -> ha az egér a 3. oszlop egyik cellája fölött van, a 3. oszlop minden cellája kék
+        //   table:has(.oszlop-3:hover) .oszlop-3:hover    -> ezen belül az egér alatti cella narancs
+        // Mind a 15 oszlophoz kell egy-egy ilyen szabálypár, ezért egy ciklus írja ki őket.
+        document.write("<style>");
+        for (let j = 1; j <= meret; j++) {
+            document.write(
+                "table:has(.oszlop-" + j + ":hover) .oszlop-" + j + " { background-color: #cfe0ff; }" +
+                "table:has(.oszlop-" + j + ":hover) .oszlop-" + j + ":hover { background-color: #ffcc66; }"
+            );
+        }
+        document.write("</style>");
+
+        // A táblázat kiírása
+        document.write("<table>");
+        for (let i = 1; i <= meret; i++) {
+            document.write("<tr>");
+            for (let j = 1; j <= meret; j++) {
+                document.write("<td class='oszlop-" + j + "'>" + (i * j) + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>

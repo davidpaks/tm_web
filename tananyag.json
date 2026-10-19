@@ -5,7 +5,7 @@
   "tanulasi_ut": [
     { "nev": "HTML-szerkezet", "allapot": "kesz" },
     { "nev": "CSS és reszponzív elrendezés", "allapot": "kesz" },
-    { "nev": "JavaScript alapok", "allapot": "kesobb" },
+    { "nev": "JavaScript alapok", "allapot": "kesz" },
     { "nev": "Események és DOM", "allapot": "kesobb" },
     { "nev": "Űrlapok", "allapot": "kesobb" },
     { "nev": "SVG és Canvas", "allapot": "kesobb" }
@@ -41,6 +41,14 @@
       "kulcsszavak": ["<nav>", "<a href>", "relatív útvonal", "<iframe>"],
       "feladatok": [
         { "mappa": "A pénz", "szerep": "órai", "megjegyzes": "Ötoldalas webhely" }
+      ]
+    },
+    {
+      "cim": "JavaScript alapok",
+      "kulcsszavak": ["<script>", "let", "console.log", "document.write", "if", "for", "function", ":hover", ":has()"],
+      "feladatok": [
+        { "mappa": "Szorzótábla", "szerep": "órai", "megjegyzes": "15×15-ös tábla; gyakorló rész: a sor és az oszlop kiemelése CSS-sel" },
+        { "mappa": "Osztótábla", "szerep": "órai", "megjegyzes": "Plusz feladat" }
       ]
     }
   ]

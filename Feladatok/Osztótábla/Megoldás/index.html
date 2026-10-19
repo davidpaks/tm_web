@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osztótábla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td, th {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+        th {
+            background-color: #2b59c3;
+            color: white;
+        }
+        /* Ahol az osztás nem végezhető el maradék nélkül */
+        .nem {
+            background-color: #e6e6e6;
+            color: #999999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Osztótábla</h1>
+    <p>Az első oszlop számait osztjuk az első sor számaival. A szürke cellákban az osztás maradékot adna.</p>
+
+    <script>
+        let meret = 15;
+
+        document.write("<table>");
+
+        // Első sor: az osztók (a bal felső sarok üres marad)
+        document.write("<tr><th>:</th>");
+        for (let j = 1; j <= meret; j++) {
+            document.write("<th>" + j + "</th>");
+        }
+        document.write("</tr>");
+
+        // A további sorok: elöl az osztandó, utána az eredmények
+        for (let i = 1; i <= meret; i++) {
+            document.write("<tr>");
+            document.write("<th>" + i + "</th>");
+            for (let j = 1; j <= meret; j++) {
+                // A % a maradékot adja meg: ha 0, akkor az osztás maradék nélkül elvégezhető.
+                if (i % j == 0) {
+                    document.write("<td>" + (i / j) + "</td>");
+                } else {
+                    document.write("<td class='nem'>–</td>");
+                }
+            }
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+    </script>
+</body>
+</html>
