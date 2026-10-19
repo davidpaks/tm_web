@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénzváltó</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .urlap {
+            max-width: 420px;
+            margin: 30px auto;
+            box-sizing: border-box;
+            padding: 20px 24px;
+            border: 2px solid #333333;
+        }
+        .sor {
+            margin: 14px 0;
+        }
+        .sor > label:first-child {
+            display: inline-block;
+            width: 140px;
+        }
+        input[type="text"] {
+            width: 185px;
+            max-width: 100%;
+        }
+        .penznemek {
+            display: flex;
+            gap: 20px;
+        }
+        fieldset {
+            flex: 1;
+            border: 2px solid #333333;
+        }
+        select {
+            width: 90px;
+            vertical-align: top;
+        }
+        #eredmeny {
+            margin-top: 20px;
+            font-size: 1.15em;
+        }
+        .hiba {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="urlap">
+        <div class="sor">
+            <label for="nev">Név:</label>
+            <input type="text" id="nev">
+        </div>
+
+        <div class="sor">
+            <label for="osszeg">Összeg:</label>
+            <input type="number" id="osszeg" min="1" value="100">
+        </div>
+
+        <div class="penznemek">
+            <!-- Az azonos "name" miatt egy csoporton belül csak egy választógomb lehet bejelölve -->
+            <fieldset>
+                <legend>Miről</legend>
+                <input type="radio" name="mirol" id="mirolHUF"> <label for="mirolHUF">HUF</label><br>
+                <input type="radio" name="mirol" id="mirolEUR"> <label for="mirolEUR">EUR</label><br>
+                <input type="radio" name="mirol" id="mirolUSD"> <label for="mirolUSD">USD</label>
+            </fieldset>
+            <fieldset>
+                <legend>Mire</legend>
+                <input type="radio" name="mire" id="mireHUF"> <label for="mireHUF">HUF</label><br>
+                <input type="radio" name="mire" id="mireEUR"> <label for="mireEUR">EUR</label><br>
+                <input type="radio" name="mire" id="mireUSD"> <label for="mireUSD">USD</label>
+            </fieldset>
+        </div>
+
+        <div class="sor">
+            <input type="checkbox" id="kedvezmeny">
+            <label for="kedvezmeny">Kedvezmény (−5%)</label>
+        </div>
+
+        <div class="sor">
+            <label for="kezeles">Kezelési költség:</label>
+            <!-- size="3": mindhárom lehetőség egyszerre látszik, mint a rajzon -->
+            <select id="kezeles" size="3">
+                <option value="0" selected>0,0%</option>
+                <option value="1">1,0%</option>
+                <option value="2">2,0%</option>
+            </select>
+        </div>
+
+        <input type="button" value="Váltás" onclick="valtas()">
+
+        <p id="eredmeny">Fizetendő összeg: …</p>
+    </div>
+
+    <script>
+        // Mintaárfolyamok: 1 egység hány forint (EKB, 2026. október közepe, kerekítve)
+        function arfolyam(penznem) {
+            if (penznem == "EUR") {
+                return 363.6;
+            }
+            if (penznem == "USD") {
+                return 323.1;
+            }
+            return 1; // HUF
+        }
+
+        // Megadja, melyik pénznem van kiválasztva egy csoportban ("mirol" vagy "mire").
+        // Ha egyik sincs kiválasztva, üres szöveget ad vissza.
+        function kivalasztott(csoport) {
+            if (document.getElementById(csoport + "HUF").checked) {
+                return "HUF";
+            }
+            if (document.getElementById(csoport + "EUR").checked) {
+                return "EUR";
+            }
+            if (document.getElementById(csoport + "USD").checked) {
+                return "USD";
+            }
+            return "";
+        }
+
+        function valtas() {
+            let nev = document.getElementById("nev").value;
+            let osszeg = Number(document.getElementById("osszeg").value);
+            let mirol = kivalasztott("mirol");
+            let mire = kivalasztott("mire");
+            let kezeles = Number(document.getElementById("kezeles").value);
+            let eredmeny = document.getElementById("eredmeny");
+
+            // Ellenőrzés: minden szükséges adat meg van-e adva
+            if (nev == "" || osszeg <= 0 || mirol == "" || mire == "") {
+                eredmeny.innerHTML = "<span class='hiba'>Hiányzó adat: a név, a pozitív összeg és mindkét pénznem megadása szükséges.</span>";
+                return;
+            }
+
+            // 1. Átváltás: előbb forintra, aztán a cél pénznemre
+            let atvaltott = osszeg * arfolyam(mirol) / arfolyam(mire);
+
+            // 2. Kezelési költség hozzáadása (0, 1 vagy 2 százalék)
+            let fizetendo = atvaltott * (1 + kezeles / 100);
+
+            // 3. Kedvezmény: 5% levonás, ha be van jelölve
+            if (document.getElementById("kedvezmeny").checked) {
+                fizetendo = fizetendo * 0.95;
+            }
+
+            // A tizedespontot magyar tizedesvesszőre cseréljük
+            eredmeny.innerHTML = nev + ", fizetendő összeg: <b>" + fizetendo.toFixed(2).replace(".", ",") + " " + mire + "</b>";
+        }
+    </script>
+</body>
+</html>

@@ -185,6 +185,20 @@ def zip_name(task: Path, part: Path) -> str:
     return f"{task.name} - {part.name}.zip"
 
 
+VIEWABLE = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".pdf", ".html", ".txt"}
+
+
+def open_target(part: Path) -> list[str] | None:
+    """A mappán belüli út, ami böngészőben megnyitható: a mappa maga, ha van benne index.html,
+    vagy az egyetlen fájl, ha csak egy (megjeleníthető) fájl van benne."""
+    if (part / "index.html").exists():
+        return []
+    files = files_in(part)
+    if len(files) == 1 and files[0].suffix.lower() in VIEWABLE:
+        return list(files[0].relative_to(part).parts)
+    return None
+
+
 def task_row(task: Path, role: str | None, note: str | None) -> str:
     parts = parts_of(task)
     btns = []
@@ -193,7 +207,12 @@ def task_row(task: Path, role: str | None, note: str | None) -> str:
         btns.append(f'<a class="btn" href="{url("Feladatok", task.name, sol.name)}/">{ICON_OPEN}Mintamegoldás</a>')
     raw = next((p for p in parts if not is_solution(p)), None)
     if raw:
-        btns.append(f'<a class="btn" href="{url("Feladatok", task.name, zip_name(task, raw))}" download>{ICON_DL}{e(raw.name)}</a>')
+        target = open_target(raw)
+        if target is None:
+            btns.append(f'<a class="btn" href="{url("Feladatok", task.name, zip_name(task, raw))}" download>{ICON_DL}{e(raw.name)}</a>')
+        else:
+            href = url("Feladatok", task.name, raw.name, *target) + ("/" if not target else "")
+            btns.append(f'<a class="btn" href="{href}">{ICON_OPEN}{e(raw.name)}</a>')
     btns.append(f'<a class="btn quiet" href="{task_href(task.name)}">Minden fájl</a>')
     role_html = f'<span class="role role-{role}">{"Órai" if role == "órai" else "Gyakorló"}</span>' if role else ""
     note_html = f'<span class="note">{e(note)}</span>' if note else ""
@@ -225,8 +244,10 @@ def build():
         for part in parts:
             make_zip(part, OUT / "Feladatok" / name / zip_name(task, part))
             btns = [f'<a class="btn" href="{url(zip_name(task, part))}" download>{ICON_DL}Letöltés (.zip)</a>']
-            if (part / "index.html").exists():
-                btns.insert(0, f'<a class="btn" href="{url(part.name)}/">{ICON_OPEN}Megnyitás böngészőben</a>')
+            target = open_target(part)
+            if target is not None:
+                href = url(part.name, *target) + ("/" if not target else "")
+                btns.insert(0, f'<a class="btn" href="{href}">{ICON_OPEN}Megnyitás böngészőben</a>')
             desc = "A kész weboldal, összevetéshez" if is_solution(part) else "A feladathoz szükséges kiinduló anyagok"
             items = "".join(
                 f'<li><a href="{url(part.name, *f.relative_to(part).parts)}">{e(f.relative_to(part).as_posix())}</a>'
@@ -244,7 +265,7 @@ def build():
         has_raw = any(not is_solution(p) for p in parts)
         steps = ""
         if has_raw and any(is_solution(p) for p in parts):
-            steps = ('<ol class="steps"><li>A kiinduló anyag letöltése és kicsomagolása.</li>'
+            steps = ('<ol class="steps"><li>A feladat és a kiinduló anyag megnyitása vagy letöltése.</li>'
                      '<li>A weboldal önálló elkészítése a minta alapján.</li>'
                      '<li>Összevetés a mintamegoldással.</li></ol>')
         body = (f'<main class="wrap"><a class="crumb" href="../../">← Vissza a tanegységekhez</a>'
