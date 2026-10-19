@@ -33,5 +33,6 @@ Minden feladatnál:
 | 4. | Többoldalas webhely, navigáció, hivatkozások | A pénz | – |
 | 5. | JavaScript alapok | Szorzótábla, Osztótábla (plusz feladat) | – |
 | 6. | Űrlapok | Űrlapelemek (órai példa) | Pénzváltó |
+| 7. | Eseménykezelés | Eseménykezelés (órai példa) | Számkitaláló |
 
 A feladatok forrásfájljai ebben a GitHub repositoryban, a [`Feladatok`](Feladatok) mappában is elérhetők.

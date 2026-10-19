@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számkitaláló</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .jatek {
+            width: 540px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 2px solid #333333;
+        }
+        .sor {
+            margin: 12px 0;
+        }
+        #tipp {
+            width: 70px;
+        }
+        #valasz {
+            font-size: 1.2em;
+            font-weight: bold;
+            min-height: 1.4em;
+        }
+        /* A számegyenes: 500 px széles, minden szám 5 px.
+           A vonalkákat két ismétlődő színátmenet rajzolja: kicsi minden 5. px-enként, nagy minden 50. px-enként. */
+        #szamegyenes {
+            width: 500px;
+            height: 40px;
+            border: 2px solid #333333;
+            cursor: crosshair;
+            background-image:
+                repeating-linear-gradient(to right, #333333 0 2px, transparent 2px 50px),
+                repeating-linear-gradient(to right, #999999 0 1px, transparent 1px 5px);
+            background-size: 100% 100%, 100% 40%;
+            background-repeat: no-repeat;
+            background-position: 0 0, 0 100%;
+        }
+        .cimkek {
+            width: 504px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: #555555;
+        }
+        .halvany {
+            color: #777777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<!-- 1. Az oldal betöltésekor indul a játék (onload).
+     5. Billentyűlenyomás a teljes oldalon: + és − (onkeydown). -->
+<body onload="inditas()" onkeydown="billentyu(event)">
+    <div class="jatek">
+        <input type="button" value="Indítás" onclick="inditas()">
+
+        <!-- 2. Tippelés a mezővel és a gombbal -->
+        <div class="sor">
+            <label for="tipp">Tipp:</label>
+            <input type="number" id="tipp" min="1" max="100" value="50">
+            <input type="button" value="Tippel" onclick="tippel()">
+        </div>
+        <p id="valasz"></p>
+
+        <!-- 3. Egérmozgás a számegyenesen (onmousemove), 4. kattintás a számegyenesre (onclick) -->
+        <div id="szamegyenes" onmousemove="mozgas(event)" onclick="kattintas(event)"></div>
+        <div class="cimkek"><span>1</span><span>50</span><span>100</span></div>
+        <p id="egerTipp">Tipp: –</p>
+
+        <p class="halvany">A + és a − billentyű eggyel növeli, illetve csökkenti a tippet.</p>
+        <p class="halvany" id="szamlalo"></p>
+    </div>
+
+    <script>
+        let titkos;        // a kitalálandó szám
+        let tippekSzama;   // eddigi tippek száma
+        let vege;          // eltalálta-e már
+
+        // 1. Új játék: véletlen szám 1 és 100 között
+        function inditas() {
+            titkos = Math.floor(Math.random() * 100) + 1;
+            tippekSzama = 0;
+            vege = false;
+            valasz.innerHTML = "Gondoltam egy számra 1 és 100 között.";
+            szamlalo.innerHTML = "";
+        }
+
+        // 2. A beírt tipp kiértékelése
+        function tippel() {
+            if (vege) {
+                return;
+            }
+            let szam = parseInt(tipp.value);
+            if (isNaN(szam) || szam < 1 || szam > 100) {
+                valasz.innerHTML = "1 és 100 közötti szám kell.";
+                return;
+            }
+            tippekSzama = tippekSzama + 1;
+            if (szam > titkos) {
+                valasz.innerHTML = szam + " → kisebb";
+            } else if (szam < titkos) {
+                valasz.innerHTML = szam + " → nagyobb";
+            } else {
+                valasz.innerHTML = szam + " → talált! 🎉";
+                vege = true;
+            }
+            szamlalo.innerHTML = "Tippek száma: " + tippekSzama;
+        }
+
+        // A számegyenes egy pontjához tartozó szám: 500 px / 100 szám = 5 px egy szám
+        function szamAzEgerhez(event) {
+            let szam = Math.floor(event.offsetX / 5) + 1;
+            if (szam < 1) {
+                szam = 1;
+            }
+            if (szam > 100) {
+                szam = 100;
+            }
+            return szam;
+        }
+
+        // 3. Az egér mozgatásakor kiírjuk, melyik szám fölött van
+        function mozgas(event) {
+            egerTipp.innerHTML = "Tipp: " + szamAzEgerhez(event);
+        }
+
+        // 4. Kattintásra ez a szám lesz a tipp
+        function kattintas(event) {
+            tipp.value = szamAzEgerhez(event);
+            tippel();
+        }
+
+        // 5. A + és a − billentyű növeli, illetve csökkenti a tippet
+        function billentyu(event) {
+            let szam = parseInt(tipp.value);
+            if (isNaN(szam)) {
+                szam = 50;
+            }
+            if (event.key == "+") {
+                event.preventDefault();   // ne kerüljön a + jel a mezőbe
+                if (szam < 100) {
+                    tipp.value = szam + 1;
+                }
+            } else if (event.key == "-") {
+                event.preventDefault();
+                if (szam > 1) {
+                    tipp.value = szam - 1;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

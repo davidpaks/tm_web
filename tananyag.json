@@ -6,7 +6,7 @@
     { "nev": "HTML-szerkezet", "allapot": "kesz" },
     { "nev": "CSS és reszponzív elrendezés", "allapot": "kesz" },
     { "nev": "JavaScript alapok", "allapot": "kesz" },
-    { "nev": "Események és DOM", "allapot": "kesobb" },
+    { "nev": "Események és DOM", "allapot": "kesz" },
     { "nev": "Űrlapok", "allapot": "kesz" },
     { "nev": "SVG és Canvas", "allapot": "kesobb" }
   ],
@@ -57,6 +57,14 @@
       "feladatok": [
         { "mappa": "Űrlapelemek", "szerep": "órai", "megjegyzes": "Az órán végigvett példa: szövegmező, szám, lista, választógombok" },
         { "mappa": "Pénzváltó", "szerep": "gyakorló", "megjegyzes": "Kiadott feladat: űrlap a rajz alapján, a fizetendő összeg kiszámítása" }
+      ]
+    },
+    {
+      "cim": "Eseménykezelés",
+      "kulcsszavak": ["onclick", "onkeyup", "onkeydown", "onmousemove", "onload", "event.offsetX", "innerHTML", "parseInt"],
+      "feladatok": [
+        { "mappa": "Eseménykezelés", "szerep": "órai", "megjegyzes": "Az órán végigvett példa: gomb, billentyű és egér eseményei" },
+        { "mappa": "Számkitaláló", "szerep": "gyakorló", "megjegyzes": "Kiadott feladat: számkitalálós játék, tippelés mezővel, számegyenessel és billentyűkkel" }
       ]
     }
   ]

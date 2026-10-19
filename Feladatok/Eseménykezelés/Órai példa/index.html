@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fv() {
+            alert(szoveg.value)
+        }
+        function fv2() {
+            szoveg.value = szoveg2.value;
+        }
+        function fv3(event) {
+            szam.value = parseInt(szam.value) + 1;
+            k.innerHTML = "X: "+event.offsetX+" Y: "+event.offsetY;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="szoveg"><input type="button" value="Gomb" onclick="fv()">
+    <br>
+    <input type="text" id="szoveg2" onkeyup="fv2()">
+    <br>
+    <input type="number" id="szam" value="1">    <br>
+    <img src="kep.jpg" onmousemove="fv3(event)" width="200px">
+    <p id="k"></p>
+</body>
+</html>
